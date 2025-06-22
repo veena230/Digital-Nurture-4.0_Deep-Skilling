@@ -1,16 +1,22 @@
 package com.forecast;
-import java.util.Arrays;
-public class Main {
-	public static void main(String[] args) {
-		 double[] sales = {50000, 55000, 60500}; // Historical sales
-	        double growthRate = 0.10; // 10% annual growth
-
-	        FinancialForecast forecast = new FinancialForecast(sales, growthRate);
-
-	        double nextYear = forecast.forecastNextYear();
-	        System.out.println("Forecast for next year: $" + nextYear);
-
-	        double[] next5Years = forecast.forecastNextNYears(5);
-	        System.out.println("Forecast for next 5 years: " + Arrays.toString(next5Years));
-	    }
-	}
+public class FinancialForecast {
+    private double[] historicalSales;
+    private double growthRate;
+    public FinancialForecast(double[] historicalSales, double growthRate) {
+        this.historicalSales = historicalSales;
+        this.growthRate = growthRate;
+    }
+    public double forecastNextYear() {
+        double lastYearSales = historicalSales[historicalSales.length - 1];
+        return lastYearSales * (1 + growthRate);
+    }
+    public double[] forecastNextNYears(int years) {
+        double[] forecast = new double[years];
+        double current = historicalSales[historicalSales.length - 1];
+        for (int i = 0; i < years; i++) {
+            current *= (1 + growthRate);
+            forecast[i] = current;
+        }
+        return forecast;
+    }
+}
