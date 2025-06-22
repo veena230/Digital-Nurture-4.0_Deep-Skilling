@@ -1,5 +1,4 @@
 package com.singleton;
-
 public class Logger {
 	 private static Logger instance;
 	    private Logger() {
