@@ -1,21 +1,21 @@
-package com.examples;
+package com.example.model;
 
-//import org.springframework.context.ApplicationContext;
-//import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import com.example.model.Country;
-//import com.examples.config.AppConfig;
+public class Country {
+    private String name;
+    private String capital;
 
-public class MainApp {
-    public static void main(String[] args) {
-        //ApplicationContext Context = new AnnotationConfigApplicationContext(AppConfig.class);
-        //Country country = Context.getBean(Country.class);
-        //country.display();
-    	Country ctry  = new Country();
-    	ctry.setName("India");
-    	ctry.setCapital("New Delhi");
-    	ctry.display();
-    	
-    	//AppConfig apc = new AppConfig();
-    	
+    // Setters
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCapital(String capital) {
+        this.capital = capital;
+    }
+
+    // ✅ Add this method
+    public void display() {
+        System.out.println("Country: " + name);
+        System.out.println("Capital: " + capital);
     }
 }
