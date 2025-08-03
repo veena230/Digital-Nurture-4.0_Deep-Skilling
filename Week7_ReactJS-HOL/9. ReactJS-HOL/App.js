@@ -1,7 +1,13 @@
 import React from 'react';
+import Welcome from './Welcome';
 
 function App() {
-  return <h1>Hello, React Hands-On!</h1>;
+  return (
+    <div>
+      <Welcome name="Veena" />
+      <Welcome name="React Learner" />
+    </div>
+  );
 }
 
 export default App;
